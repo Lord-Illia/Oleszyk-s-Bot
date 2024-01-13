@@ -1,6 +1,6 @@
 import os
 import discord
-import asyncpg
+import psycopg2
 from keep_alive import keep_alive
 keep_alive()
 
@@ -14,9 +14,7 @@ db_url = os.environ.get("DB_URL")
 user_data = {}  # Dictionary to store user data
 db_pool = None  # Initialize the database connection pool as a global variable
 
-async def create_pool():
-    global db_pool
-    db_pool = await asyncpg.create_pool(dsn=db_url)
+conn = psycopg2.connect(db_url)
 
 async def execute_query(query, *args):
     async with db_pool.acquire() as conn:
