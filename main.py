@@ -8,7 +8,7 @@ intents.message_content = True
 client = discord.Client(intents=intents)
 
 # PostgreSQL database configuration
-db_url = os.getenv("DB_URL")
+db_url = os.environ.get("DB_URL")
 
 user_data = {}  # Dictionary to store user data
 db_pool = None  # Initialize the database connection pool as a global variable
@@ -226,4 +226,4 @@ async def on_message(message):
 
 
 keep_alive()
-client.run(os.getenv("TOKEN"))
+client.run(os.environ.get("TOKEN"))
