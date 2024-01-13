@@ -2,6 +2,7 @@ import os
 import discord
 import asyncpg
 from keep_alive import keep_alive
+keep_alive()
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -225,5 +226,4 @@ async def on_message(message):
         await message.channel.send("Here is a list of all commands for this bot: \n 'freeth': it will make a request to Oleszyk for a free thumbnail. \n '!finished': use this command to send finished proj to the customer. \n '!list': it will show you eather whole list of undone requests or a specific oreder. ")
 
 
-keep_alive()
 client.run(os.environ.get("TOKEN"))
