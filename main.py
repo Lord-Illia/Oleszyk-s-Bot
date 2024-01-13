@@ -5,7 +5,7 @@ from keep_alive import keep_alive
 keep_alive()
 
 intents = discord.Intents.default()
-intents.messages = True
+intents.message_content = True
 client = discord.Client(intents=intents)
 
 # PostgreSQL database configuration
